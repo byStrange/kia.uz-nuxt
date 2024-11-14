@@ -1,16 +1,13 @@
 {
   "name": "nuxt3-template",
   "private": true,
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
     "start": "node .output/server/index.mjs",
-    "lint": "eslint --ext .js,.ts,.vue .",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
+    "lint": "eslint  .",
+    "lint:fix": "eslint . --fix",
     "configure-env": "configure-env"
   },
   "husky": {
@@ -24,28 +21,28 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.6.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@vue/eslint-config-prettier": "^10.0.0",
+    "@primevue/nuxt-module": "^4.2.1",
     "configure-env": "^1.0.0",
-    "eslint": "^9.12.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vue-i18n": "^10.0.4"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "@pinia/nuxt": "^0.5.5",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
+    "@nuxt/eslint": "^0.6.1",
+    "@nuxtjs/seo": "2.0.0-rc.23",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@pinia/nuxt": "^0.7.0",
+    "@primevue/themes": "^4.2.1",
+    "@vueuse/core": "^11.2.0",
+    "@vueuse/nuxt": "^11.2.0",
     "dotenv": "^16.4.5",
-    "nuxt": "^3.13.2",
-    "nuxt-simple-robots": "^4.0.1",
-    "nuxt-simple-sitemap": "^4.4.1",
-    "pinia": "^2.2.4"
-  }
+    "nuxt": "^3.14.159",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.2.6",
+    "primevue": "^4.2.1",
+    "tailwind-variants": "^0.3.0"
+  },
+  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
 }

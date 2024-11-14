@@ -1,11 +1,18 @@
 <template>
   <NuxtLayout>
+    <div
+      v-if="isLoading"
+      class="w-screen h-screen fixed flex-center z-50 bg-white bg-opacity-70 backdrop-blur-xl"
+    >
+      <div class="loader"></div>
+    </div>
     <NuxtPage />
   </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
 const config = useRuntimeConfig()
+const isLoading = ref(false)
 
 const title = config.public.siteName
 const description = '{{ SITE_DESCRIPTION }}'
@@ -68,5 +75,9 @@ useHead({
       color: themeColour,
     },
   ],
+})
+
+onMounted(() => {
+  isLoading.value = false
 })
 </script>

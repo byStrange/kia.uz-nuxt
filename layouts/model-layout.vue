@@ -1,7 +1,10 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="overflow-hidden">
     <UIHeader />
-      <slot></slot>
+    <SectionBar />
+    <slot></slot>
     <UIFooter />
   </div>
 </template>

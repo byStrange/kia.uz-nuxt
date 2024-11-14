@@ -5,6 +5,9 @@
 
 @import 'tailwindcss/utilities';
 
+@import './components/index.css';
+@import './utilities/index.css';
+
 .layout-enter-active,
 .layout-leave-active,
 .page-enter-active,
@@ -17,4 +20,10 @@
 .page-enter,
 .page-leave-to {
   @apply opacity-0;
+}
+
+@layer base {
+  body {
+    font-family: 'Kia Signature';
+  }
 }
