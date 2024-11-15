@@ -1,18 +1,11 @@
 <script setup lang="ts">
-import { useTitle } from '@vueuse/core'
-
-const title = useTitle()
-
-onMounted(() => {
-  title.value = 'Комплектации и цены K5'
-})
 </script>
 <template>
   <div
     data-label="Hero top"
     class="container absolute hidden h-[190px] w-full items-start justify-end gap-6 pt-7.5 md:block 2xl:pt-5"
   >
-    <UIBreadCrumbs
+    <UIBreadcrumb
       class="hidden bg-transparent text-white 2xl:block"
       theme="dark"
     />
@@ -23,7 +16,7 @@ onMounted(() => {
         <h1
           class="text-2xl text-center text-primary font-semibold md:text-4xl 2xl:text-5xl 2xl:text-left"
         >
-          {{ title }}
+          Комплектации и цены K5
         </h1>
         <div
           class="mt-3 md:mt-4 text-center 2xl:text-left 2xl:flex justify-between"

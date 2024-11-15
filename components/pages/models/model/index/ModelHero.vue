@@ -13,7 +13,7 @@ const { offset } = useContainer()
         data-label="Hero top"
         class="container absolute hidden h-[190px] w-full items-start justify-end gap-6 pt-7.5 md:block md:bg-[linear-gradient(180deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0)100%)] 2xl:bg-[linear-gradient(180deg,rgba(5,20,31,0.5)_24.47%,rgba(5,20,31,0)100%)] 2xl:pt-5"
       >
-        <UIBreadCrumb
+        <UIBreadcrumb
           class="hidden bg-transparent text-white 2xl:block"
           theme="light"
         />

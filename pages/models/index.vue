@@ -1,8 +1,6 @@
 <script setup lang="tsx">
 import { UIInfoIcon, UITickToRight } from '#components'
 
-const { headerService } = useHeaderService()
-
 const availableOptions = ref([
   { label: 'Carens', value: 'car' },
   { label: 'Carnival', value: 'carnival' },
@@ -17,10 +15,6 @@ const availableOptions = ref([
 ])
 
 const selectedOption = ref(null)
-
-onMounted(() => {
-  headerService.value.lockHover = true
-})
 
 const modelGroups = ref([
   {
@@ -162,7 +156,9 @@ const ModelCard = ({ model }: { model: any }) => {
             <div class="mt-4 flex-wrap md:mt-8 md:flex md:gap-9 2xl:mt-10">
               <ModelCard
                 @click="
-                  $router.push({ name: 'model', params: { id: model.name } })
+                  $router.push({
+                    name: 'models-id',
+                  })
                 "
                 class="mx-auto shrink-0 md:mx-0"
                 :model="model"

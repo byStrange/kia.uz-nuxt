@@ -77,73 +77,75 @@ defineExpose({
 </script>
 <template>
   <div>
-    <Swiper
-      :style="{
-        '--swiper-pagination-mt': paginationMt,
-      }"
-      :breakpoints="breakpointsEnabled ? swiperBreakpoints : {}"
-      slides-per-view="auto"
-      :modules="[Pagination]"
-      :pagination="true"
-      :slides-offset-before="slidesOffsetBefore"
-      :slides-offset-after="slidesOffsetAfter"
-      :space-between="spaceBetween"
-      class="light-pagination"
-      @swiper="swiper = $event"
-      :key="bounding.x.value"
-      v-bind="$attrs"
-    >
-      <template #container-start>
-        <template v-if="navigiationMode == 'normal'">
-          <UIButtonCarousel
-            v-if="navigation"
-            position="left"
-            :hide="swiperActiveIndex === 0"
-            @click="swiper?.slidePrev()"
-            :mode="navigiationMode"
-            :size="navigationType"
-          />
-
-          <UIButtonCarousel
-            v-if="navigation"
-            position="right"
-            :hide="swiperActiveIndex === swiperLength - 1"
-            @click="swiper?.slideNext()"
-            :size="navigationType"
-            :mode="navigiationMode"
-          />
-        </template>
-        <template v-else-if="navigiationMode == 'oneside-left'">
-          <div
-            class="absolute right-15 z-40 h-full flex flex-col justify-center items-center gap-2"
-          >
+    <ClientOnly>
+      <Swiper
+        :style="{
+          '--swiper-pagination-mt': paginationMt,
+        }"
+        :breakpoints="breakpointsEnabled ? swiperBreakpoints : {}"
+        slides-per-view="auto"
+        :modules="[Pagination]"
+        :pagination="true"
+        :slides-offset-before="slidesOffsetBefore"
+        :slides-offset-after="slidesOffsetAfter"
+        :space-between="spaceBetween"
+        class="light-pagination"
+        @swiper="swiper = $event"
+        :key="bounding.x.value"
+        v-bind="$attrs"
+      >
+        <template #container-start>
+          <template v-if="navigiationMode == 'normal'">
             <UIButtonCarousel
-              position="right"
               v-if="navigation"
-              :hide="swiperActiveIndex === swiperLength - 2"
-              @click="swiper?.slideNext()"
-              :size="navigationType"
-              :mode="navigiationMode"
-            />
-            <UIButtonCarousel
               position="left"
-              v-if="navigation"
               :hide="swiperActiveIndex === 0"
               @click="swiper?.slidePrev()"
               :mode="navigiationMode"
               :size="navigationType"
             />
-          </div>
+
+            <UIButtonCarousel
+              v-if="navigation"
+              position="right"
+              :hide="swiperActiveIndex === swiperLength - 1"
+              @click="swiper?.slideNext()"
+              :size="navigationType"
+              :mode="navigiationMode"
+            />
+          </template>
+          <template v-else-if="navigiationMode == 'oneside-left'">
+            <div
+              class="absolute right-15 z-40 h-full flex flex-col justify-center items-center gap-2"
+            >
+              <UIButtonCarousel
+                position="right"
+                v-if="navigation"
+                :hide="swiperActiveIndex === swiperLength - 2"
+                @click="swiper?.slideNext()"
+                :size="navigationType"
+                :mode="navigiationMode"
+              />
+              <UIButtonCarousel
+                position="left"
+                v-if="navigation"
+                :hide="swiperActiveIndex === 0"
+                @click="swiper?.slidePrev()"
+                :mode="navigiationMode"
+                :size="navigationType"
+              />
+            </div>
+          </template>
+          <slot name="navigation" />
         </template>
-        <slot name="navigation" />
-      </template>
-      <SwiperSlide
-        class="md:!w-fit"
-        v-for="item in data"
-        :class="swiperSlideClass"
-      >
-        <slot name="slide" :item :bounding> </slot>
-      </SwiperSlide>
-    </Swiper>
+        <SwiperSlide
+          class="md:!w-fit"
+          v-for="item in data"
+          :class="swiperSlideClass"
+        >
+          <slot name="slide" :item :bounding> </slot>
+        </SwiperSlide>
+      </Swiper>
+    </ClientOnly>
   </div>
 </template>

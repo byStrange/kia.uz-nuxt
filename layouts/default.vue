@@ -1,7 +1,7 @@
 <template>
-  <div class="overflow-hidden">
+  <div>
     <UIHeader />
-      <slot></slot>
+    <router-view />
     <UIFooter />
   </div>
 </template>

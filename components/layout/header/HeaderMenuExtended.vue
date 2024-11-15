@@ -30,7 +30,7 @@ const { headerService } = useHeaderService()
               v-for="item in headerService.extendedMenu.children"
               :key="item.label"
             >
-              <NUxtLink :to="item.to" class="shrink-0 py-[5px]">
+              <NuxtLink :to="item.to" class="shrink-0 py-[5px]">
                 {{ item.label }}
               </NuxtLink>
             </div>

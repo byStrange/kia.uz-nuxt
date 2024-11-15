@@ -1,5 +1,6 @@
 <script setup lang="tsx">
 const { bounding } = useContainer()
+const { headerService } = useHeaderService()
 
 const extraLinksCard = [
   {
@@ -21,10 +22,15 @@ const extraLinksCard = [
       'https://ucarecdn.com/b3436484-91af-4e8c-9678-d36a564a1a3f/-/preview/1000x664/',
   },
 ]
+onMounted(() => {
+  headerService.value.lockHover = false
+  headerService.value.isHeaderFixed = false
+  headerService.value.isHover = false
+})
 </script>
 
 <template>
-  <div>
+  <div v-bind="headerService">
     <UIFloatingContactButton />
     <SectionHeroSliders />
     <SectionModels />

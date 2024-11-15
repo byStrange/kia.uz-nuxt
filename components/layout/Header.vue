@@ -53,6 +53,7 @@ watch(
 watch(
   () => headerService.value.lockHover,
   () => {
+    console.log('i fucking changed nigga')
     headerService.value.isHover = headerService.value.lockHover
   },
 )
@@ -81,7 +82,7 @@ watch(
       @mouseleave="
         () => {
           if (!headerService.lockHover) {
-            headerService.isHover = headerService.isMenuOpen
+            headerService.isHover = headerService.isMenuOpen || headerService.isHeaderFixed
           } else headerService.isHover = headerService.lockHover
         }
       "

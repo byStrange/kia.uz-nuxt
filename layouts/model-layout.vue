@@ -4,7 +4,7 @@
   <div class="overflow-hidden">
     <UIHeader />
     <SectionBar />
-    <slot></slot>
+    <router-view></router-view>
     <UIFooter />
   </div>
 </template>

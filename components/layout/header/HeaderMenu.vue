@@ -86,25 +86,5 @@ const MenuFooter = () => {
 </script>
 
 <template>
-  <transition name="slide-fade" mode="out-in">
-    <div
-      @click.self="closeExtendedMenu"
-      :style="{ height: `${height}px` }"
-      class="fixed top-[65px] z-20 w-full overflow-auto bg-black bg-opacity-20"
-      v-if="headerService.isMenuOpen"
-      :key="headerService.extendedMenu?.label"
-    >
-      <div class="bg-white 2xl:flex 2xl:bg-transparent">
-        <HeaderMenuItems v-if="!headerService.extendedMenu" />
-
-        <UIHeaderMenuExtended>
-          <template #menuFooter="{ rootClass }">
-            <MenuFooter :class="rootClass" />
-          </template>
-        </UIHeaderMenuExtended>
-
-        <MenuFooter class="2xl:hidden" />
-      </div>
-    </div>
-  </transition>
+  <div></div>
 </template>

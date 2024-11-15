@@ -63,10 +63,6 @@ const MiniThumbCard = ({ model }: { model: Model }) => {
   )
 }
 
-const redirect = async () => {
-  await navigateTo('/models/carnival')
-}
-
 const ModelCard = ({ model }: { model: Model }) => {
   return (
     <div data-label="card">
@@ -89,7 +85,7 @@ const ModelCard = ({ model }: { model: Model }) => {
           <p class="text-sm text-caption md:text-base">выгода: 50 000 сум</p>
         </div>
       </div>
-      <NuxtLink to={{ path: '/model' }}>
+      <NuxtLink to={{ path: '/models/1' }}>
         {h(UIButton, {
           label: 'Подробнее о модели',
           color: 'secondary',
@@ -105,78 +101,82 @@ const ModelCard = ({ model }: { model: Model }) => {
 <template>
   <UISection sectionTitle="Модели Kia" class="bg-background">
     <div class="2xl:container">
-      <Swiper
-        :modules="[Controller]"
-        :controller="{ control: modelsSwiper }"
-        @swiper="modelsThumbSwiper = $event"
-        @slideChange="(e) => (activeModelIndex = e.activeIndex)"
-        slides-per-view="auto"
-        :centered-slides="true"
-        :space-between="8"
-      >
-        <template #container-start>
-          <UIButtonCarousel
-            position="left"
-            :hide="activeModelIndex === 0"
-            size="sm"
-            @click="slidePrev"
-          />
-          <UIButtonCarousel
-            position="right"
-            :hide="activeModelIndex === slidesLength - 1"
-            size="sm"
-            @click="slideNext"
-          />
-          <div
-            :style="{
-              background:
-                'linear-gradient(-90deg, rgba(248, 248, 248, 0) 0%, #F8F8F8 100%)',
-            }"
-            class="absolute left-0 z-10 h-full w-[94px]"
-          ></div>
-          <div
-            :style="{
-              background:
-                'linear-gradient(90deg, rgba(248, 248, 248, 0) 0%, #F8F8F8 100%)',
-            }"
-            class="absolute right-0 z-10 h-full w-[94px]"
-          ></div>
-        </template>
-        <SwiperSlide v-for="model in models" class="!w-fit">
-          <MiniThumbCard :model="model" />
-        </SwiperSlide>
-      </Swiper>
-      <div class="mt-4 md:mt-8">
+      <ClientOnly>
         <Swiper
           :modules="[Controller]"
-          :controller="{ control: modelsThumbSwiper }"
-          @swiper="modelsSwiper = $event"
-          :slides-per-view="1"
+          :controller="{ control: modelsSwiper }"
+          @swiper="modelsThumbSwiper = $event"
+          @slideChange="(e) => (activeModelIndex = e.activeIndex)"
+          slides-per-view="auto"
           :centered-slides="true"
-          :space-between="16"
-          :slides-offset-after="parseInt(pagePadding + '')"
+          :space-between="8"
         >
           <template #container-start>
             <UIButtonCarousel
               position="left"
               :hide="activeModelIndex === 0"
+              size="sm"
               @click="slidePrev"
             />
-            >
             <UIButtonCarousel
               position="right"
               :hide="activeModelIndex === slidesLength - 1"
+              size="sm"
               @click="slideNext"
             />
+            <div
+              :style="{
+                background:
+                  'linear-gradient(-90deg, rgba(248, 248, 248, 0) 0%, #F8F8F8 100%)',
+              }"
+              class="absolute left-0 z-10 h-full w-[94px]"
+            ></div>
+            <div
+              :style="{
+                background:
+                  'linear-gradient(90deg, rgba(248, 248, 248, 0) 0%, #F8F8F8 100%)',
+              }"
+              class="absolute right-0 z-10 h-full w-[94px]"
+            ></div>
           </template>
-          <SwiperSlide
-            v-for="model in models"
-            :style="{ '--padding': bounding.x.value + 'px' }"
-            class="px-[var(--padding)]"
-          >
-            <ModelCard :model="model" />
+          <SwiperSlide v-for="model in models" class="!w-fit">
+            <MiniThumbCard :model="model" />
           </SwiperSlide>
         </Swiper>
+      </ClientOnly>
+      <div class="mt-4 md:mt-8">
+        <ClientOnly>
+          <Swiper
+            :modules="[Controller]"
+            :controller="{ control: modelsThumbSwiper }"
+            @swiper="modelsSwiper = $event"
+            :slides-per-view="1"
+            :centered-slides="true"
+            :space-between="16"
+            :slides-offset-after="parseInt(pagePadding + '')"
+          >
+            <template #container-start>
+              <UIButtonCarousel
+                position="left"
+                :hide="activeModelIndex === 0"
+                @click="slidePrev"
+              />
+              >
+              <UIButtonCarousel
+                position="right"
+                :hide="activeModelIndex === slidesLength - 1"
+                @click="slideNext"
+              />
+            </template>
+            <SwiperSlide
+              v-for="model in models"
+              :style="{ '--padding': bounding.x.value + 'px' }"
+              class="px-[var(--padding)]"
+            >
+              <ModelCard :model="model" />
+            </SwiperSlide>
+          </Swiper>
+        </ClientOnly>
       </div>
     </div>
   </UISection>

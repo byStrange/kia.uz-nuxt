@@ -20,7 +20,7 @@ const { headerService } = useHeaderService()
     >
       <button
         class="flex gap-2 text-white 2xl:2xl:pr-5"
-        @click="$router.push('/models/carnival')"
+        @click="$router.push('/models/1')"
       >
         <span class="2xl:text-lg">{{ model.name }}</span>
         <UITickToBottom class="text-white 2xl:hidden" />
@@ -42,7 +42,7 @@ const { headerService } = useHeaderService()
             <a href="#" class="text-base text-white">Обзор</a>
           </li>
           <li>
-            <NuxtLink to="/pricing" class="text-base text-white"
+            <NuxtLink to="/models/1/pricing" class="text-base text-white"
               >Комплектации и цены</NuxtLink
             >
           </li>
