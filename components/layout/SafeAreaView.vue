@@ -9,6 +9,6 @@ const paddingTop = computed(() => {
 </script>
 <template>
   <div :style="{ paddingTop: paddingTop }" class="h-full">
-    <slot :top="paddingTop"></slot>
+    <slot :top="paddingTop" />
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <UIHeader />
-    <router-view />
+    <NuxtPage />
     <UIFooter />
   </div>
 </template>

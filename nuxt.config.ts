@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@primevue/nuxt-module',
     'nuxt-swiper',
+    '@nuxthub/core',
   ],
 
   primevue: {
@@ -57,4 +58,3 @@ export default defineNuxtConfig({
     },
   },
 })
-
