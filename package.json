@@ -31,12 +31,10 @@
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
-    "vue-i18n": "^10.0.4",
-    "wrangler": "^3.87.0"
+    "vue-i18n": "^10.0.4"
   },
   "dependencies": {
     "@nuxt/eslint": "^0.6.1",
-    "@nuxthub/core": "^0.8.7",
     "@nuxtjs/seo": "2.0.0-rc.23",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.7.0",
